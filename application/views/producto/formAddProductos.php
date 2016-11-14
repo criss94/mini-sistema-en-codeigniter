@@ -30,7 +30,13 @@ require_once 'validar.php';
         </tr>
         <tr>
             <td>foto</td>
-            <td><input type="file" name="prd_foto1" required></td>
+            <td>
+                <div id="caja-file">
+                    <input type="file" name="prd_foto1" class="file" required>
+                    <span id="file-name"></span>
+                    <span id="desc-file">Subir Imagen</span>
+                </div>
+            </td>
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="agregar"></td>

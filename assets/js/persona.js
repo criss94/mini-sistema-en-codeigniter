@@ -61,6 +61,8 @@ $('#formAddUser').submit(function (e) {
         processData:false,
         success:function (data) {
             $('#formAddUser')[0].reset();
+            $('#file-name').text('');
+            $('#desc-file').text('Subir Imagen');
             $('#msj-add').text('tus datos fueron guardados correctamente');
         }
     });
@@ -131,11 +133,15 @@ $('#formLogin').submit(function (e) {
         type:'POST',
         data:{usu_nombre:user},
         success:function (data) {
-            if (data == 1){
+            if (data != 0){
+                var usu = JSON.parse(data);
                 $('#msj-login').hide();
                 $('#imgLogin').hide('slow');
                 $('#formLogin').hide();
                 $('#formLogin2').show();
+                $.each(usu,function (i,item) {
+                    $('#verUser').append('<strong>"'+item.usu_nombre+'"</strong>');
+                });
             }else{
                 $('#imgLogin').hide();
                 $('#formLogin').show();
@@ -198,7 +204,40 @@ $.post(baseurl+'LoginController/verMisDatos',function (data) {
 
 });
 
+/* eliminamos los datos del usuario logueado */
+$('#formDropPerfil').submit(function (e) {
+    e.preventDefault();
+    if (confirm('Esat seguro que quiere eliminar su cuenta?')) {
+        $.post(baseurl + 'LoginController/dropLogin', function (data) {
 
+        });
+        alert('Su cuenta ha sido eliminado correctamente');
+        window.location=baseurl+'admin';
+        return true;
+    }
+    window.location=baseurl+'admin';
+    return false;
+});
+
+
+/*###############################################################################################################
+ ########################## modificamos el boton de file con jquery #############################################
+ ################################################################################################################*/
+// de esta form tambien funciona
+$('.file').change(function (e) {
+    var filename = e.target.value.split('\\').pop();
+    $('#desc-file').text('');
+    $('#file-name').text(filename);
+});
+
+// y de sta forma tambien
+/*
+$('.file').change(function () {
+    var filename = $(this).val();
+    $('#desc-file').text('');
+    $('#file-name').text(filename);
+});
+*/
 
 
 

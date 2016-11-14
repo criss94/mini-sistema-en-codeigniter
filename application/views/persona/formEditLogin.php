@@ -43,7 +43,13 @@ require_once 'validar.php';
         </tr>
         <tr>
             <td>Cambiar Perfil</td>
-            <td><input type="file" name="imagen"></td>
+            <td>
+                <div id="caja-file">
+                    <input type="file" name="imagen" class="file">
+                    <span id="file-name"></span>
+                    <span id="desc-file">Subir Imagen</span>
+                </div>
+            </td>
         </tr>
         <tr>
             <th colspan="2">Mi cuenta de usuario</th>

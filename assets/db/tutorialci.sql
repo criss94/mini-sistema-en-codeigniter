@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 08-11-2016 a las 13:08:29
+-- Tiempo de generación: 13-11-2016 a las 19:48:19
 -- Versión del servidor: 5.7.16-0ubuntu0.16.04.1
 -- Versión de PHP: 7.0.8-0ubuntu0.16.04.3
 
@@ -19,27 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `tutorialci`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `archivos`
---
-
-CREATE TABLE `archivos` (
-  `idarchivo` int(11) NOT NULL,
-  `archivo` varchar(200) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `archivos`
---
-
-INSERT INTO `archivos` (`idarchivo`, `archivo`) VALUES
-(15, 'font-awesome-4_6_3.zip'),
-(16, 'font-awesome-4_6_31.zip'),
-(17, 'font-awesome-4_6_32.zip'),
-(18, 'font-awesome-4_6_33.zip');
 
 -- --------------------------------------------------------
 
@@ -124,9 +103,9 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`idpersona`, `nombre`, `appaterno`, `apmaterno`, `email`, `dni`, `fecnac`, `idciudad`, `imagen`) VALUES
-(15, 'cristian', 'veizaga', 'huarachi', 'cristian@gmail.com', '71707213', '06/08/1994', 4, 'galaxy-s2.png'),
-(20, 'mario', 'mendes', 'alfa', 'mario@gmail.com', '94654559', '12/15/1980', 2, 'foto.png'),
-(21, 'gonzalo', 'smith', 'bautes', 'gonza@gmail.com', '48592659', '05/09/2015', 7, 'PaginaWeb_ComputacionG.jpg');
+(15, 'cristian', 'veizaga', 'huarachi', 'cristian@gmail.com', '12121212', '04/8/1995', 1, 'garmin2.png'),
+(18, 'jose', 'peres', 'mendes', 'jose@gmail.com', '45788956', '12/10/1892', 6, 'foto1.png'),
+(25, 'carlos', 'ruis', 'lopes', 'carlos@hotmail.com', '94788889', '25/10/1960', 6, 'diseno+de+paginas+web.jpg');
 
 -- --------------------------------------------------------
 
@@ -136,10 +115,10 @@ INSERT INTO `persona` (`idpersona`, `nombre`, `appaterno`, `apmaterno`, `email`,
 
 CREATE TABLE `productos` (
   `prd_id` int(11) NOT NULL,
-  `prd_nombre` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `prd_descripcion` text COLLATE utf8_unicode_ci NOT NULL,
-  `prd_precio` int(11) NOT NULL,
-  `cat_id` int(11) NOT NULL,
+  `prd_nombre` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `prd_descripcion` text CHARACTER SET utf8,
+  `prd_precio` int(11) DEFAULT NULL,
+  `cat_id` int(11) DEFAULT NULL,
   `prd_foto1` varchar(250) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT 'sin-foto.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -160,7 +139,9 @@ INSERT INTO `productos` (`prd_id`, `prd_nombre`, `prd_descripcion`, `prd_precio`
 (10, 'Bose Sounddock 10', 'Sistema De Musica Digital Bose Sounddock 10 Para Ipod/iphone. DockStation.\r\nCompatible con las nuevas líneas de iPhone y de iPod. Bluetooth. Salida de video a un televisor o monitor.', 4500, 3, 'Bose-SoundDockr-10.png'),
 (11, 'Garmin Nuvi 1490t', 'Gps Garmin Nuvi 1490t. Pantalla Lcd de 5 pulgadas,  Bluetooth, 4Gb internos de memoria, admite tarjetas de memoria microSD.  ', 1100, 4, 'garmin.png'),
 (12, 'iPad 2 de 32GB Wifi', 'iPad 2 de 32 GB: pantalla de led retroiluminada de 9.7 pulgadas, \r\nWifi, Bluetooth, doble cámara; frontal y trasera.\r\nIOS 5, procesador A5 dual core.\r\nMultitouch. Airplay Mirroring, compatible con iCloud, Facetime, Airprint ', 3650, 5, 'iPad2.png'),
-(13, 'Samsung Galaxy Tab', 'Samsung Galaxy Tab de 16gb, pantalla de 10 pulgadas, Wifi, procesador NVIDIA Tegra 2 Dual Core 1Ghz, doble cámara.', 3450, 5, 'galaxy-tab.png');
+(25, NULL, NULL, NULL, NULL, 'sin-foto.png'),
+(27, '', '', 0, 0, 'sin-foto.png'),
+(28, 'cdscd', 'cdscd', 115, 0, 'galaxy-s23.png');
 
 -- --------------------------------------------------------
 
@@ -180,19 +161,13 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idusuario`, `usu_nombre`, `usu_clave`, `idpersona`) VALUES
-(15, 'cristian', '87b43435284539b2f7f4e4dcab5e78251c243226', 15),
-(20, 'leo', '1f0a51c36efaa0f44e4899c26d2028681997c8ea', 20),
-(21, 'gonza', 'eaa8094a8c1738b06f5190f87c81cb0ce482a4db', 21);
+(15, 'cristian', '9d97242961a5796518244f05110458b010878c4d', 15),
+(18, 'jose', '4a3487e57d90e2084654b6d23937e75af5c8ee55', 18),
+(25, 'carlos', 'ab5e2bca84933118bbc9d48ffaccce3bac4eeb64', 25);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `archivos`
---
-ALTER TABLE `archivos`
-  ADD PRIMARY KEY (`idarchivo`);
 
 --
 -- Indices de la tabla `captcha`
@@ -236,11 +211,6 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `archivos`
---
-ALTER TABLE `archivos`
-  MODIFY `idarchivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
---
 -- AUTO_INCREMENT de la tabla `captcha`
 --
 ALTER TABLE `captcha`
@@ -259,17 +229,17 @@ ALTER TABLE `ciudad`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `prd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `prd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- Restricciones para tablas volcadas
 --

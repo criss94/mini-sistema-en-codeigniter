@@ -48,7 +48,7 @@ require_once 'validar.php';
         </tr>
         <tr>
             <td>foto</td>
-            <td class="imagen"><img src="<?php echo base_url(); ?>assets/imgUser/<?php echo $u->imagen; ?>" alt="" width="150"></td>
+            <td class=""><img src="<?php echo base_url(); ?>assets/imgUser/<?php echo $u->imagen; ?>" alt="" width="150"></td>
         </tr>
         <tr>
             <th colspan="2">Datos de tu usuario</th>

@@ -24,10 +24,8 @@
             <li><a href="<?php echo base_url(); ?>formLogin">Ingresar</a></li>
 
             <li class="query">
-               <!-- <form action="<?php echo base_url(); ?>resultado" id="buscando">-->
                     <input type="search" name="query" class="palabra" id="query" placeholder="Buscar producto ...">
                     <input type="submit" value="Buscar" class="btn-buscar">
-                <!--</form>-->
             </li>
             <?php
         }else {
@@ -35,8 +33,14 @@
             <li><a href="<?php echo base_url(); ?>panelUsuarios">Admin Usuarios</a></li>
             <li><a href="<?php echo base_url(); ?>panelProductos">Admin Productos</a></li>
             <li><a href="<?php echo base_url(); ?>panelCategorias">Admin Categorias</a></li>
-            <li id="perfil"><a href="<?php echo base_url(); ?>formEditLogin">Editar mi Perfil</a></li>
-            <li id="salir"><a href="<?php echo base_url(); ?>logout">Salir</a></li>
+            <!--<li id="perfil"><a href="<?php echo base_url(); ?>formEditLogin">Editar mi Perfil</a></li>-->
+            <li id="perfilConfig">Mi Perfil
+                <ul class="down">
+                    <li><a href="<?php echo base_url(); ?>formEditLogin">Editar cuenta</a></li>
+                    <li><a href="<?php echo base_url(); ?>formDropLogin">Eliminar cuenta</a></li>
+                    <li><a href="<?php echo base_url(); ?>logout">Salir</a></li>
+                </ul>
+            </li>
             <?php
         }
         ?>

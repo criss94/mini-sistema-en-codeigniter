@@ -112,4 +112,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $this->load->view('formRegistro');
          $this->load->view('templates/pie');
      }
+
+     public function formDropLogin()
+     {
+         $this->load->view('templates/encabezado');
+         $this->load->view('templates/menu');
+         $this->load->view('persona/formDropLogin');
+         $this->load->view('templates/pie');
+     }
+
+     public function dropLogin()
+     {
+         $this->Login_model->dropLoginUsuario();
+         $this->Login_model->dropLoginPersona();
+     }
  }

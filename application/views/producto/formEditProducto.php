@@ -40,7 +40,13 @@ require_once 'validar.php';
         </tr>
         <tr>
             <td>Cambiar</td>
-            <td><input type="file" name="prd_foto1"></td>
+            <td>
+                <div id="caja-file">
+                    <input type="file" name="prd_foto1" class="file" required>
+                    <span id="file-name"></span>
+                    <span id="desc-file">Subir Imagen</span>
+                </div>
+            </td>
         </tr>
         <tr>
             <td><input type="hidden" name="prd_id" value="<?php echo $p->prd_id; ?>"></td>

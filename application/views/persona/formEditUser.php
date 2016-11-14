@@ -48,11 +48,17 @@ require_once 'validar.php';
         </tr>
         <tr>
             <td>foto</td>
-            <td class="imagen"><img src="<?php echo base_url(); ?>assets/imgUser/<?php echo $u->imagen; ?>" alt="" width="150"></td>
+            <td class=""><img src="<?php echo base_url(); ?>assets/imgUser/<?php echo $u->imagen; ?>" alt="" width="150"></td>
         </tr>
         <tr>
             <td>Cambiar Perfil</td>
-            <td><input type="file" name="imagen"></td>
+            <td>
+                <div id="caja-file">
+                    <input type="file" name="imagen" class="file">
+                    <span id="file-name"></span>
+                    <span id="desc-file">Subir Imagen</span>
+                </div>
+            </td>
         </tr>
         <tr>
             <th colspan="2">Datos de tu usuario</th>

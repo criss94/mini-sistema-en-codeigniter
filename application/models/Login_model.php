@@ -9,18 +9,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function verificarUsuario($name)
         {
-            $this->db->select('p.idpersona,p.nombre,p.appaterno,p.apmaterno,p.email,u.idusuario,u.usu_nombre,u.usu_clave,u.idpersona');
-            $this->db->from('persona p');
-            $this->db->join('usuario u','u.idpersona = p.idpersona');
+            $this->db->select('usu_nombre');
+            $this->db->from('usuario');
             $this->db->where('usu_nombre',$name);
             $data = $this->db->get();
             if ($data->num_rows() > 0){
-                $fila = $data->row();
-                $session = array(
-                    'nombre'=>$fila->nombre.' '.$fila->appaterno
-                );
-                $this->session->set_userdata($session);
-                return 1;
+                return $data->result();
             }else{
                 return 0;
             }
@@ -59,5 +53,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->where('p.idpersona',$this->session->userdata('idpersona'));
             $data = $this->db->get();
             return $data->result();
+        }
+
+        public function dropLoginUsuario()
+        {
+            $this->db->where('idpersona',$this->session->userdata('idpersona'));
+            $this->db->delete('usuario');
+        }
+
+        public function dropLoginPersona()
+        {
+            $this->db->where('idpersona',$this->session->userdata('idpersona'));
+            $this->db->delete('persona');
         }
     }

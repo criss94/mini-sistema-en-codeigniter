@@ -4,7 +4,6 @@
 *{margin: 0px;padding: 0px; border:none; }
 
 body {
-
 	font-family:"Myriad Pro", "Trebuchet MS", Arial, sans-serif;
 	font-size: 13px;
 	color: #444;
@@ -20,7 +19,7 @@ body {
 #nav{
     width: 100%;
 	text-align: center;
-	background: #008080;
+	background: #2e6da4;
 }
 #main {
 	width:95%;
@@ -54,39 +53,45 @@ a:hover {
 #nav ul {
 	display: block;
     margin: 0px auto;
-    width: 1000px;
-    height: 25px;
+    width: 50%;
+    height: 26px;
     padding: 3px 0 12px 0px;
 }
 #nav ul li {
     float: left;
     list-style-type: none;
     margin: 0 5px;
-    padding: 8px 10px;
-    background: #f6f8fb;
+    padding: 7px 10px;
+    background: #afd9ee;
 }
 #nav ul li:hover {
     background: #fff;
 }
+#nav ul li a {
+    font-size: 14px;
+}
+
 /***************************************************
 			      	clases
 ***************************************************/
 .panel, #panel{
 	width:100%;
 	margin:auto;
-	background-color:#f1f5fe;
-	border: 1px solid #4fb8db;
-	}
+	background-color:#8ba8af;
+    color: white;
+}
 .paneles, #paneles{
 	margin:15px auto;
 	width: 450px;
 	margin:15px auto;
-	border: 1px solid #4fb8db;
-	background-color:#e8f7ff;
+	background-color:#8ba8af;
+    color: white;
 }
 .titulo, th{
 	font-weight:bold;
-	background-color:#d9e5fb;
+	background-color:#2e6da4;
+    color: white;
+    font-size: 16px;
 	}
 
 .lista1{
@@ -94,13 +99,14 @@ a:hover {
 }
 
 .lista, .titulo, td{
-	border:1px dashed #dbe1ea;
+	border:1px solid #dbe1ea;
 	border-bottom:1px solid #c9e0fc;
     padding: 3px;
 	text-align: center;
+    font-size: 14px;
 	}
 .pie, #pie{
-	background-color:#008080;
+	background-color:#2e6da4;
 	color:white;
 	text-align:center;
 	font-size:15px;
@@ -110,18 +116,18 @@ a:hover {
 	}
 	
 .campos, input[type="text"], input[type="password"],input[type='email'],input[type='date'], textarea, select{
-	background-color:#e8f7ff;
+	background-color:#46b8da;
 	border: 1px solid #4fb8db;
-	font-family: "Trebuchet MS";
+	font-family: "sans-serif";
 	font-size: 15px;
 	color: #333;
-	width:250px;
+	width:260px;
 	margin: 4px 0px;
-	padding: 3px;
+	padding: 5px;
 	}
 .botones, input[type="submit"], .volver{
 	cursor:pointer;
-	background-color:#046b8c;
+	background-color:#2e6da4;
 	border: 1px solid #023a4d;
 	color:#FFF;
 	width:180px;
@@ -158,13 +164,10 @@ a:hover {
 }
 
 h1{
-	/* background-color:#666; */
 	color:#3F6592;
-	/* border-left: 30px solid #fc0; */
 	margin:20px auto;
 	padding:10px;
 	text-align: center;
-	
 }
 
 h3{
@@ -226,15 +229,49 @@ h3{
 	padding-left: 5px;
 }
 
-#salir{
-    position: absolute;
-    top:82px;
-    right: 0.6%;
+/* menu de configuracion del perfild el usuario legueado */
+#perfilConfig{
+    position: relative;
+    width: 100px;
+    height: 22px;
+    border-radius: 8px;
+    top:0px;
+    right: -53%;
+    font-size: 14px;
+    font-weight: bold;
 }
-#perfil{
+#nav #perfilConfig:hover{
+    background: #afd9ee;
+}
+#perfilConfig .down{
     position: absolute;
-    top:82px;
-    right: 5%;
+    left: -9999px;
+}
+
+#perfilConfig:hover .down{
+    position: absolute;
+    top: 33px;
+    left:-15px;
+    width: 120px;
+    height: auto;
+}
+#perfilConfig:hover .down li{
+    display: block;
+    width: 120px;
+    background: #0086b3;
+}
+#perfilConfig:hover .down li:first-child {
+    border-radius: 8px 8px 0px 0px;
+}
+#perfilConfig:hover .down li:last-child {
+    border-radius: 0px 0px 8px 8px;
+}
+#perfilConfig:hover .down li a{
+    color: white;
+}
+#perfilConfig:hover .down li:hover {
+    color: white;
+    background: #b8d0ff;
 }
 
 #nav .query{
@@ -259,4 +296,38 @@ h3{
 }
 #nav .query .btn-buscar:hover {
     background: #008080;
+}
+
+/* el nombredel usuario cuando se loguea, pero antes de entrar al sistema*/
+#verUser strong{
+	font-size: 17px;
+}
+
+/* modificamos el boton del file */
+#caja-file{
+    margin-left: 35px;
+    width: 150px;
+    height: 30px;
+    position: relative;
+    background: #023a4d;
+    padding: 2px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    border: 1px solid #023a4d;
+}
+#caja-file .file{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    cursor: pointer;
+}
+#caja-file:hover{
+    background: #a6e1ec;
+    color: #000;
+    border: 1px solid;
+    cursor: pointer;
 }

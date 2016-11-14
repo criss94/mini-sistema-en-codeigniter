@@ -85,4 +85,5 @@ $route['logout']='LoginController/logout';
 
 // editar el perfil del usuario logueado
 $route['formEditLogin']='LoginController/formEditLogin';
+$route['formDropLogin']='LoginController/formdropLogin';
 

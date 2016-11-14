@@ -39,8 +39,7 @@
             <th colspan="2">Ingresa tu password</th>
         </tr>
         <tr>
-            <td colspan="2" align="center">Escribe la contraseña para el usuario:
-                <strong><?php echo $this->session->userdata('nombre'); ?></strong></td>
+            <td colspan="2" align="center" id="verUser">Escribe la contraseña para el usuario: </td>
         </tr>
         <tr>
             <td>Ingresa tu Password</td>

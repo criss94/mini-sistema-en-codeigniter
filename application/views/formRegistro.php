@@ -39,7 +39,13 @@
         </tr>
         <tr>
             <td>Foto Perfil</td>
-            <td><input type="file" name="imagen"></td>
+            <td>
+                <div id="caja-file">
+                    <input type="file" name="imagen" class="file">
+                    <span id="file-name"></span>
+                    <span id="desc-file">Subir Imagen</span>
+                </div>
+            </td>
         </tr>
         <tr>
             <th colspan="2">Crea tu cuenta de usuario</th>
