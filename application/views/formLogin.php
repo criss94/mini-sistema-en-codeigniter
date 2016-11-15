@@ -42,6 +42,10 @@
             <td colspan="2" align="center" id="verUser">Escribe la contraseña para el usuario: </td>
         </tr>
         <tr>
+            <td></td>
+            <td><input type="hidden" name="usu_nombre" id="name_user"></td>
+        </tr>
+        <tr>
             <td>Ingresa tu Password</td>
             <td><input type="password" name="usu_clave" class="usu_clave" required></td>
         </tr>

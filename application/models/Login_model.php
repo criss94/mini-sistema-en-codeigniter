@@ -20,11 +20,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         }
 
-        public function verificarPassword($pass)
+        public function verificarPassword($name,$pass)
         {
             $this->db->select('p.idpersona,p.nombre,p.appaterno,p.apmaterno,p.email,u.idusuario,u.usu_nombre,u.usu_clave,u.idpersona');
             $this->db->from('persona p');
             $this->db->join('usuario u','u.idpersona = p.idpersona');
+            $this->db->where('u.usu_nombre',$name);
             $this->db->where('u.usu_clave',$pass);
             $data = $this->db->get();
             if ($data->num_rows() > 0){

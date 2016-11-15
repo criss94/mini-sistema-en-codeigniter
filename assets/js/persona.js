@@ -141,6 +141,7 @@ $('#formLogin').submit(function (e) {
                 $('#formLogin2').show();
                 $.each(usu,function (i,item) {
                     $('#verUser').append('<strong>"'+item.usu_nombre+'"</strong>');
+                    $('#name_user').val(item.usu_nombre);
                 });
             }else{
                 $('#imgLogin').hide();
@@ -155,11 +156,15 @@ $('#formLogin').submit(function (e) {
 // verifico el password para un inicio de session
 $('#formLogin2').submit(function (e) {
     e.preventDefault();
+    var user = $('#name_user').val();
     var pass = $('.usu_clave').val();
     $.ajax({
         url:baseurl+'LoginController/verificarPassword',
         type:'POST',
-        data:{usu_clave:pass},
+        data:{
+            usu_nombre:user,
+            usu_clave:pass
+        },
         success:function (data) {
             if (data == 1){
                 window.location=baseurl+'admin';

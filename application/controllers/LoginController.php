@@ -35,8 +35,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
      public function verificarPassword()
      {
+         $name = $this->input->post('usu_nombre');
          $pass = sha1($this->input->post('usu_clave'));
-         echo json_encode($this->Login_model->verificarPassword($pass));
+         echo json_encode($this->Login_model->verificarPassword($name,$pass));
      }
 
      public function logout()
